@@ -168,7 +168,7 @@ app.delete('/api/medicines/:id', verifyToken, async (req, res) => {
 
 
 require('dotenv').config();
-const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const accountSid = "AC8b90163c1caa2bfda7563453407c3f56";
 // Import the Twilio module
 const twilio = require('twilio');
 
