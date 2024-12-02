@@ -12,7 +12,7 @@ const nodemailer = require('nodemailer');
 const app = express();
 app.use(cors(
     {
-        origin:["https://med-ease-project.vercel.app/"],
+        origin:["https://med-ease.vercel.app/"],
         methods:["POST","GET"],
         credentials:true
         
