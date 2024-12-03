@@ -10,14 +10,7 @@ const cron = require('node-cron');
 const nodemailer = require('nodemailer');
 
 const app = express();
-app.use(cors(
-    {
-        origin:["https://med-ease-proj.vercel.app/"],
-        methods:["POST","GET"],
-        credentials:true
-        
-    }
-));
+app.use(cors());
 app.use(bodyParser.json());
 
 mongoose.connect('mongodb+srv://ashritha:ashritha@cluster0.wvphu4e.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', { useNewUrlParser: true, useUnifiedTopology: true });
