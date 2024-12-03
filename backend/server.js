@@ -10,13 +10,22 @@ const cron = require('node-cron');
 const nodemailer = require('nodemailer');
 
 const app = express();
-app.use(cors(
-    {
-  origin: 'https://verdant-sundae-cda9d9.netlify.app', // Update with your frontend URL
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  
-}
-));
+const allowedOrigins = [
+  'http://localhost:3000', // Local development
+  'https://bejewelled-yeot-718e9a.netlify.app' // Deployed frontend
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      // Allow requests from the specified origins
+      callback(null, true);
+    } else {
+      // Reject requests from other origins
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+}));
 app.use(bodyParser.json());
 
 mongoose.connect('mongodb+srv://ashritha:ashritha@cluster0.wvphu4e.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', { useNewUrlParser: true, useUnifiedTopology: true });
