@@ -14,7 +14,7 @@ app.use(cors(
     {
   origin: 'https://verdant-sundae-cda9d9.netlify.app', // Update with your frontend URL
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true,
+  
 }
 ));
 app.use(bodyParser.json());
