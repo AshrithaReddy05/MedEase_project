@@ -12,7 +12,7 @@ const SignUp = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/register', {
+      const response = await axios.post('https://medease-project-backend.onrender.com/api/register', {
         username,
         email,
         password,
