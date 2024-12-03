@@ -53,7 +53,7 @@ const userSchema = new mongoose.Schema({
 const User= mongoose.model('User',userSchema);
 
 // Register route
-app.post('/api/register', async (req, res) => {
+app.post('https://medease-project-backend.onrender.com/api/register', async (req, res) => {
   const { username, email, password } = req.body;
 
   try {
@@ -81,7 +81,7 @@ app.post('/api/register', async (req, res) => {
 });
 
 // Login route
-app.post('/api/login', async (req, res) => {
+app.post('https://medease-project-backend.onrender.com/api/login', async (req, res) => {
   const { email, password } = req.body;
   console.log(email," ",password);
 
@@ -130,7 +130,7 @@ const Medicine = mongoose.model('Medicine', medicineSchema);
 
 
 // Add medicine route (protected)
-app.post('/api/medicines', verifyToken, async (req, res) => {
+app.post('https://medease-project-backend.onrender.com/api/medicines', verifyToken, async (req, res) => {
   try {
       // Add userId to the medicine document
       const medicine = new Medicine({
@@ -145,7 +145,7 @@ app.post('/api/medicines', verifyToken, async (req, res) => {
 });
 
 // Get medicines route (protected) - Only the logged-in user should see their medicines
-app.get('/api/medicines', verifyToken, async (req, res) => {
+app.get('https://medease-project-backend.onrender.com/api/medicines', verifyToken, async (req, res) => {
   try {
       const medicines = await Medicine.find({ userId: req.user.userId }); // Filter medicines by userId
       res.status(200).send(medicines);
@@ -155,7 +155,7 @@ app.get('/api/medicines', verifyToken, async (req, res) => {
 });
 
 // Delete medicine route (protected)
-app.delete('/api/medicines/:id', verifyToken, async (req, res) => {
+app.delete('https://medease-project-backend.onrender.com/api/medicines/:id', verifyToken, async (req, res) => {
   const medicineId = req.params.id;
 
   try {
