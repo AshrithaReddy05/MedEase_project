@@ -21,7 +21,7 @@ const ViewMedicines = () => {
 
         const fetchMedicines = async () => {
             try {
-                const response = await axios.get('https://medease-project-backend.onrender.com/api/medicines', {
+                const response = await axios.get('http://localhost:5000/api/medicines', {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 setMedicines(response.data);
@@ -40,7 +40,7 @@ const ViewMedicines = () => {
         if (window.confirm('Are you sure you want to delete this medicine?')) {
             try {
                 const token = localStorage.getItem('token');
-                await axios.delete(`https://medease-project-backend.onrender.com/api/medicines/${id}`, {
+                await axios.delete(`http://localhost:5000/api/medicines/${id}`, {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 setMedicines(medicines.filter((medicine) => medicine._id !== id));
