@@ -67,7 +67,7 @@ const MedicineForm = () => {
     const token = localStorage.getItem('token');
 
     try {
-      await axios.post('https://medease-project-backend.onrender.com/api/medicines', medicine, {
+      await axios.post('http://localhost:5000/api/medicines', medicine, {
         headers: {
           Authorization: `Bearer ${token}`
         }
